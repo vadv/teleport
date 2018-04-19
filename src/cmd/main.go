@@ -38,6 +38,7 @@ func main() {
 			if err != nil {
 				if err != nil {
 					errChan <- err
+					return
 				}
 			}
 			log.Printf("[INFO] start http server at %s\n", addr)
@@ -51,6 +52,7 @@ func main() {
 			if err != nil {
 				if err != nil {
 					errChan <- err
+					return
 				}
 			}
 			log.Printf("[INFO] start https server at %s\n", addr)
