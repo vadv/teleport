@@ -27,6 +27,6 @@ openssl req \
 ## Прописываем в hosts
 
 ```bash
-echo "api.telegram.org 127.0.0.127" > /etc/hosts
-echo "web.telegram.org 127.0.0.127" > /etc/hosts
+echo "api.telegram.org 127.0.0.127" >> /etc/hosts
+echo "web.telegram.org 127.0.0.127" >> /etc/hosts
 ```
