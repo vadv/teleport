@@ -1,6 +1,7 @@
 package http
 
 import (
+	"crypto/tls"
 	"fmt"
 	"io"
 	"log"
@@ -35,7 +36,10 @@ func newProxy(connectionString string) (*proxy, error) {
 		if err != nil {
 			return nil, err
 		}
-		transport := &http.Transport{Dial: socksProxy.Dial}
+		transport := &http.Transport{
+			Dial:            socksProxy.Dial,
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
 		result.client.Transport = transport
 		log.Printf("[INFO] created socks5 proxy")
 	default:
